@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta sobre bolo</title>
+    <style>
+        .button-disabled {
+            pointer-events: none;
+            color: grey;
+            position: relative;
+            display: inline-block;
+        }
+
+        .shake {
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-20px); }
+            50% { transform: translateX(20px); }
+            75% { transform: translateX(-20px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Você aceita um bolo?</h1>
+    <button id="yesButton">Sim</button>
+    <button id="noButton" class="button-disabled">Não</button>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+
+        noButton.addEventListener('click', function() {
+            noButton.classList.add('shake');
+            setTimeout(() => {
+                noButton.classList.remove('shake');
+            }, 500); // Remove a animação após 0.5s
+        });
+
+        document.getElementById('yesButton').addEventListener('click', function() {
+            alert('Você aceitou o bolo!');
+        });
+    </script>
+</body>
+</html>
